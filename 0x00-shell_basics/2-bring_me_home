@@ -1,2 +1,3 @@
 #!/bin/bash
-cd $HOME
+cd $HOME 
+#I'm not sure about this.
