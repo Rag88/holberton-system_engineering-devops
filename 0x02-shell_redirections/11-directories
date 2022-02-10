@@ -1,2 +1,2 @@
 #!/bin/bash
-find .*/ -type d -print | wc -l 
+ls -la | egrep '^d.*\.$' | wc -l
