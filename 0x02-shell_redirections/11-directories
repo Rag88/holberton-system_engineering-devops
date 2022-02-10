@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -la | egrep '^.*\.$' | wc -l
+find .*/ -maxdepth 1 -type d | wc -l
