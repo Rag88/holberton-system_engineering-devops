@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Bash script that displays numbers from 1 to 100
+
+for i in {1..100}
+do
+    out=""
+    if [ $((i % 3)) -eq 0 ] # 'c' module '3' is 0?
+    then
+        out+="Fizz"
+    fi
+    if [ $((i % 5)) -eq 0 ] # 'c' module '5' is 0?
+    then
+        out+="Buzz"
+    fi
+    if [ -z "$out" ]
+    then
+        out="$i"
+    fi
+    echo "$out"
+done
