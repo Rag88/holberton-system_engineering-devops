@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#script that displays when receiving a SIGTERM signal: I am invincible!!!  
+
+trap "echo 'I am invincible!!!'" SIGTERM
+while true; do
+    echo "To infinity and beyond"
+    sleep 2
+done
