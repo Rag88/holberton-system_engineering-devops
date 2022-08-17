@@ -1,13 +1,11 @@
-# Set up the client SSH configuration file so that you can connect
-# to a server without typing a password.
-# include stdlib
+# Set up your client SSH configuration file so that you can connect to a server without typing a password using Puppet
 
-file_line { 'Use private key':
-    path => '/etc/ssh/ssh_config',
-    line => 'IdentityFile ~/.ssh/holberton',
+file_line { 'Identity file':
+  path    => '/etc/ssh/ssh_config',
+  line    => '    IdentityFile ~/.ssh/school',
 }
 
-file_line { 'Refuse password':
-    path => '/etc/ssh/ssh_config',
-    line => 'PasswordAuthentication no',
+file_line { 'No Passwdord needed':
+  path    => '/etc/ssh/ssh_config',
+  line    => '    PasswordAuthentication no',
 }
