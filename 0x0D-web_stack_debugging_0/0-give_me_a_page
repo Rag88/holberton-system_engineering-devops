@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# webstack debugging, start apache2
+
+sudo service apache2 start
