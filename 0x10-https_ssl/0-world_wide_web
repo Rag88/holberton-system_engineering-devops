@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Sript that prints The subdomain [SUB_DOMAIN] is a [RECORD_TYPE] record and points to [DESTINATION]
+
+func() {
+    if [ "$#" -eq 1 ]; then
+        DOM=$(echo "$1")
+        for SUB in www lb-01 web-01 web-02
+        do  
+            URL=$(echo "$SUB.$DOM")
+            IP=$(dig $URL | grep -A1 'ANSWER SECTION:' | sed -n '1!p' | awk -F' ' '{print $5}')
+            echo "The subdomain $SUB is a A record and points to $IP"
+        done
+    else 
+        DOM=$(echo "$1")
+        SUB=$(echo "$2")
+        URL=$(echo "$SUB.$DOM")
+        IP=$(dig $URL | grep -A1 'ANSWER SECTION:' | sed -n '1!p' | awk -F' ' '{print $5}')
+        echo "The subdomain $SUB is a A record and points to $IP"
+    fi;
+}
+
+func $1 $2
